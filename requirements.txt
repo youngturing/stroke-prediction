@@ -1,0 +1,8 @@
+imbalanced_learn==0.7.0
+imblearn==0.0
+pandas==1.5.3
+scikit_learn==1.4.0
+tensorflow==2.15.0.post1
+tensorflow_intel==2.13.0
+fastapi==0.108.0
+uvicorn==0.27.0

@@ -1,0 +1,4 @@
+*.xlsx
+*.sav
+
+.ipynb_checkpoints
