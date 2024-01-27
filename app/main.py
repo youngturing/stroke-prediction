@@ -37,8 +37,8 @@ async def predict(patient_data: PatientDataModel) -> Dict:
     loaded_model = pickle.load(open(model_filename, 'rb'))
     print(loaded_model)
     try:
-        probas = loaded_model.predict_proba([data_processed])
-        probability = probas[0][1]
+        proba = loaded_model.predict_proba([data_processed])
+        probability = proba[0][1]
         prediction = 'Stroke probability is: {:.1%}'.format(probability)
         return {
             'prediction': prediction
