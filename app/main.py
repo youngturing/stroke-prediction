@@ -35,7 +35,6 @@ async def predict(patient_data: PatientDataModel) -> Dict:
     data = patient_data.dict()
     data_processed = await preprocess_data(data=data)
     loaded_model = pickle.load(open(model_filename, 'rb'))
-    print(loaded_model)
     try:
         proba = loaded_model.predict_proba([data_processed])
         probability = proba[0][1]
