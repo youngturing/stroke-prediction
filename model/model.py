@@ -103,7 +103,8 @@ class Models:
 
     def save_metrics_to_csv(self) -> None:
         metrics_df = pd.DataFrame(data=self.all_models_metrics)
-        metrics_df.to_csv(self.__metrics_file)
+        metrics_df.insert(0, 'Model', self.model_names)
+        metrics_df.to_csv(self.__metrics_file, index=False)
 
     def evaluate(self) -> None:
         for model_name in self.model_names:
@@ -118,7 +119,7 @@ class Models:
             logger.info('Model: {}. Metrics: {}'.format(model_name, data))
             self.all_models_metrics.append(data)
             self.save_metrics_to_excel()
-            self.save_metrics_to_csv()
+        self.save_metrics_to_csv()
 
 
 def main():
