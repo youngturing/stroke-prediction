@@ -1,6 +1,6 @@
 # Run unit tests for data and connection in stroke_predicition app
 
-name: stroke_predicition
+name: stroke_prediction
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: stroke_prediction
+        working-directory: stroke_prediction/
 
     steps:
       -
