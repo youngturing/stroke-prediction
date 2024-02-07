@@ -3,6 +3,8 @@ from typing import Dict, List
 
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
+from json import JSONDecodeError
+from requests.exceptions import ConnectionError
 
 app = FastAPI()
 model_filename = 'app/stroke_model_LogReg_scikit.sav'
@@ -17,7 +19,7 @@ class PatientDataModel(BaseModel):
 
 
 @app.get('/')
-async def root():
+def root():
     return {'Message': 'Stroke prediction app.'}
 
 
@@ -41,6 +43,14 @@ async def predict(patient_data: PatientDataModel) -> Dict:
         prediction = 'Stroke probability is: {:.1%}'.format(probability)
         return {
             'prediction': prediction
+        }
+    except JSONDecodeError as e:
+        return {
+            'Error reading data from json file': e
+        }
+    except ConnectionError as e:
+        return {
+            'Connection error': e
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
