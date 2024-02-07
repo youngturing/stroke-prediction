@@ -14,6 +14,7 @@ def extract_data_to_csv(path: str) -> None:
     ----------
         path: downloaded filename with healthcare data.
     """
+    print('siema')
     with ZipFile(path, 'r') as zip_obj:
         zip_obj.extractall()
 
