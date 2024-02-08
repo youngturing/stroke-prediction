@@ -20,6 +20,7 @@ class PatientDataModel(BaseModel):
 
 @app.get('/')
 def root():
+    print('hej')
     return {'Message': 'Stroke prediction app.'}
 
 
