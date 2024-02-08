@@ -5,7 +5,7 @@ name: stroke_prediction
 on:
   push:
     paths:
-      - 'stroke_prediction/**'
+      - './stroke_prediction/'
 
 jobs:
   test:
