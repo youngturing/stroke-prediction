@@ -2,10 +2,7 @@
 
 name: stroke_prediction
 
-on:
-  push:
-    paths:
-      - '.'
+on: push
 
 jobs:
   test:
