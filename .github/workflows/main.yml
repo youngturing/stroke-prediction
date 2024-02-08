@@ -5,7 +5,7 @@ name: stroke_prediction
 on:
   push:
     paths:
-      - './stroke_prediction/'
+      - '../stroke_prediction/'
 
 jobs:
   test:
@@ -13,7 +13,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: stroke_prediction/
+        working-directory: ../stroke_prediction/
 
     steps:
       -
